@@ -88,3 +88,7 @@ git push
 ```
 
 After this ArgoCD will detect the change and auto sync the env based on your configuration.
+
+
+## Controlling which app to be deployed on an environment
+You can also control the app you want to deploy based on `envs` under the `apps`. For exmaple api is deployed on all envs and web is deployed only in stage and prod.
