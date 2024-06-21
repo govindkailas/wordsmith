@@ -59,4 +59,3 @@ data:
 kind: ConfigMap
 metadata:
   name: db-schema
-  namespace: argocd
