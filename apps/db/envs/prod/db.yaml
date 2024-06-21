@@ -34,6 +34,10 @@ spec:
           ports:
             - containerPort: 5432
               name: db
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
           volumeMounts:
             - name: db-schema
               mountPath: /docker-entrypoint-initdb.d

@@ -59,3 +59,32 @@ api-858f6678-fjdws     1/1       Running   0          1m
 api-858f6678-rrr8c     1/1       Running   0          1m
 api-858f6678-x9zqh     1/1       Running   0          1m
 ```
+
+
+## ArgoCD 
+We can make it even better by implementing ArgoCD, it's inspired by the best practises mentioned in [this blog post ](https://codefresh.io/blog/how-to-structure-your-argo-cd-repositories-using-application-sets/)
+
+### Install ArgoCD
+
+To install ArgoCD, follow the official [installation guide](https://argo-cd.readthedocs.io/en/stable/getting_started/). ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes.
+
+
+With Argo we deploy the same set of apps to 3 environments dev,stage and prod. Base/common settings of the apps goes to base and `env` specific configs goes under envs.
+
+## Automation from CI pipeline
+
+```
+git clone https://github.com/govindkailas/wordsmith.git
+cd wordsmith
+
+# kustomize
+kustomize edit set image wordsmith-api:v2.0
+
+# plain yaml
+kubectl patch --local -f apps/api/deploy-svc.yaml -p '{"spec":{"template":{"spec":{"containers":[{"name":"api","image":"dockersamples/wordsmith-api:v2.0"}]}}}}' -o yaml
+
+git add . -m "Update api to v2.0"
+git push
+```
+
+After this ArgoCD will detect the change and auto sync the env based on your configuration.
