@@ -30,13 +30,13 @@ jobs:
       packages: write # needed to push docker image to ghcr.io
       pull-requests: write # needed to create and update comments in PRs
     
-    secrets:
+    # secrets:
 
-      # Only needed if with:dockerhub-enable is true below
-      dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #   # Only needed if with:dockerhub-enable is true below
+    #   dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
 
-      # Only needed if with:dockerhub-enable is true below
-      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+    #   # Only needed if with:dockerhub-enable is true below
+    #   dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
 
     with:
       
@@ -44,16 +44,16 @@ jobs:
       ### ENABLE ONE OR BOTH REGISTRIES
       ### tell docker where to push.
       ### NOTE if Docker Hub is set to true, you must set secrets above and also add account/repo/tags below
-      dockerhub-enable: true
+      # dockerhub-enable: true
       ghcr-enable: true
 
       ### REQUIRED 
       ### A list of the account/repo names for docker build. List should match what's enabled above
       ### defaults to:
-      image-names: |
-        ghcr.io/dockersamples/wordsmith-api
-        dockersamples/wordsmith-api
-        dockersamples/k8s-wordsmith-api
+      # image-names: |
+      #   ghcr.io/dockersamples/wordsmith-api
+      #   dockersamples/wordsmith-api
+      #   dockersamples/k8s-wordsmith-api
       
       ### REQUIRED set rules for tagging images, based on special action syntax:
       ### https://github.com/docker/metadata-action#tags-input
