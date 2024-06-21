@@ -23,7 +23,7 @@ spec:
       source:
         repoURL: https://github.com/govindkailas/wordsmith.git
         targetRevision: HEAD
-        path: '{{.path.path}}'
+        path: 'argo-appsets'
       
       # Destination cluster and namespace to deploy the application
       destination:
