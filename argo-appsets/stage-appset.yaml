@@ -23,12 +23,12 @@ spec:
       source:
         repoURL: https://github.com/govindkailas/wordsmith.git
         targetRevision: HEAD
-        path: 'argo-appsets'
+        path: '{{.path.path}}'
       
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{index .path.segments 1}}-{{index .path.segments 3}}'
+        namespace: 'stage'
 
       # Sync policy
       syncPolicy:
