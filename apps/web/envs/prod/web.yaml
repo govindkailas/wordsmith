@@ -37,7 +37,7 @@ spec:
           env:
           - name: ENV
             value: "prod"    
-            resources:
+          resources:
             limits:
               cpu: 500m
               memory: 512Mi
