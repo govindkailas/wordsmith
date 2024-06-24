@@ -62,7 +62,7 @@ api-858f6678-x9zqh     1/1       Running   0          1m
 
 
 ## ArgoCD 
-We can make it even better by implementing ArgoCD, it's inspired by the best practises mentioned in [this blog post ](https://codefresh.io/blog/how-to-structure-your-argo-cd-repositories-using-application-sets/)
+We can make it even better by implementing ArgoCD, it's inspired by the best practices mentioned in [this blog post ](https://codefresh.io/blog/how-to-structure-your-argo-cd-repositories-using-application-sets/)
 
 ### Install ArgoCD
 
@@ -70,24 +70,24 @@ To install ArgoCD, follow the official [installation guide](https://argo-cd.read
 
 
 ## ArgoCD App of Apps
-To utilize ArgoCD in all it's capabilities, lets use the 3 level structure as shown in the image below
+To utilize ArgoCD in all it's capabilities let's use the 3-level structure as shown in the image below
 ![Argo App of Apps](argo-app-of-apps.png)
 
-At the lowest level, keep all the k8s yaml/helm. One level above we have Application Set which wraps all the k8s manifest into ArgoCd apps. This should be sufficent to go for now. The next level is optional, but it allows you to bootstrap the entire apps in the cluster. 
+At the lowest level, keep all the k8s yaml/helm. One level above we have Application Set which wraps all the k8s manifest into ArgoCd apps. This should be sufficient to go for now. The next level is optional, but it allows you to bootstrap all the apps in the cluster. 
 
 To deploy all the apps to the cluster, run the below, 
 ```
 kubectl apply -f root-argocd-app.yaml 
 ```
 
-You can also deploy apps based on env, for example to deploy apps to `dev`
+You can also deploy apps based on env, for example, to deploy apps to `dev`
 ```
 kubectl apply -f argo-appsets/dev-appset.yaml
 ```
 
-With Argo we deploy the same set of apps to 3 environments dev,stage and prod. Base/common settings of the apps goes to base and `env` specific configs goes under envs.
+With Argo we deploy the same set of apps to 3 environments dev, stage and prod. Base/common settings of the apps go to base and `env` specific configs go under envs.
 
-## Automation from CI pipeline
+## Automation from the CI pipeline
 
 ```
 git clone https://github.com/govindkailas/wordsmith.git
@@ -107,5 +107,5 @@ After this ArgoCD will detect the change and auto sync the env based on your con
 
 
 ## Controlling which app to be deployed on an environment
-You can also control the app you want to deploy based on `envs` under the `apps`. For exmaple api is deployed on all envs and web is deployed only in stage and prod.
+You can also control the app you want to deploy based on `envs` under the `apps`. For example, api is deployed on all envs and web is deployed only in stage and prod.
 
