@@ -109,3 +109,8 @@ After this ArgoCD will detect the change and auto sync the env based on your con
 ## Controlling which app to be deployed on an environment
 You can also control the app you want to deploy based on `envs` under the `apps`. For example, api is deployed on all envs and web is deployed only in stage and prod.
 
+![apps deployed on prod env](argo-apps-prod.png)
+
+## ArgoCD References
+- https://github.com/kostis-codefresh/many-appsets-demo.git 
+- https://codefresh.io/blog/how-to-structure-your-argo-cd-repositories-using-application-sets/ 
