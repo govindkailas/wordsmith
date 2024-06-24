@@ -107,7 +107,7 @@ After this ArgoCD will detect the change and auto sync the env based on your con
 
 
 ## Controlling which app to be deployed on an environment
-You can also control the app you want to deploy based on `envs` under the `apps`. For example, api is deployed on all envs and web is deployed only in stage and prod.
+You can also control the app you want to deploy based on `envs` under the `apps`. For example, api is deployed on all envs and web is deployed only in stage and prod. All 3 apps are deployed on prod env. Prod has its own configs that are differtent from other envs, like replicas of api are 5, resoruces allocated to each containers are more and web service is exposed on port#80. All of these are picked up based on the env file of prod from [here](apps/web/envs/prod/web.yaml)
 
 ![apps deployed on prod env](argo-apps-prod.png)
 
