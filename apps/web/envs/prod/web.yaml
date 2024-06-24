@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: dockersamples/wordsmith-web
+          image: ghcr.io/govindkailas/wordsmith-web:sha256-a9f36f94b42cd43b72c0dd0911a0a62eedd97a4415f09887502256768289b3f8.sig
           ports:
             - containerPort: 80
               name: web
