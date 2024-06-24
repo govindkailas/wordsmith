@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: ghcr.io/govindkailas/wordsmith-web:sha256-38af740dd59ed3dca88f73f91555771792bb4ed74eeb2582147bfcd4d0e3a6c1.sig
+          image: ghcr.io/govindkailas/wordsmith-web:main
           ports:
             - containerPort: 80
               name: web
