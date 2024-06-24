@@ -75,6 +75,16 @@ To utilize ArgoCD in all it's capabilities, lets use the 3 level structure as sh
 
 At the lowest level, keep all the k8s yaml/helm. One level above we have Application Set which wraps all the k8s manifest into ArgoCd apps. This should be sufficent to go for now. The next level is optional, but it allows you to bootstrap the entire apps in the cluster. 
 
+To deploy all the apps to the cluster, run the below, 
+```
+kubectl apply -f root-argocd-app.yaml 
+```
+
+You can also deploy apps based on env, for example to deploy apps to `dev`
+```
+kubectl apply -f argo-appsets/dev-appset.yaml
+```
+
 With Argo we deploy the same set of apps to 3 environments dev,stage and prod. Base/common settings of the apps goes to base and `env` specific configs goes under envs.
 
 ## Automation from CI pipeline
